@@ -1,0 +1,151 @@
+#************************************
+
+# ANSHUL SHRIVASTAVA   
+#Defining Functions
+
+# Understanding scope:
+
+global_var=1
+def my_vars():
+    print('Global Variable:',global_var)
+    local_var=2
+    print('Local Variable:',local_var)
+    #coerced global variable
+    global inner_var
+    inner_var=3
+
+my_vars()
+print('Coerced Global:',inner_var)
+
+
+#supplying arguments:
+
+def echo(user,lang,sys):
+    print('USER:',user,'LANGUAGE:',lang,'SYSTEM:',sys)
+
+echo('Mike','Python','Windows')
+echo(lang='Python',sys='Mac OS',user='Ansh')
+
+def mirror(user='Chotu',lang='Python'):
+    print('\nUser:',user,'Language:',lang)
+
+mirror()
+mirror(lang='Java')
+mirror(user='ansh')
+mirror('ansh','C++')
+
+
+#returning values
+
+num=input('enter a integer :')
+def square(num):
+    if not num.isdigit():
+        return 'invalid entry'
+    num = int(num)
+    return num*num
+
+print(num,' squared is:',square(num))
+
+
+#using callbacks/lambda:
+
+def function_1(x):return x**2
+def function_2(x):return x**3
+def function_3(x):return x**4
+
+callbacks=[function_1,function_2,function_3]
+print('Named Functions:')
+for function in callbacks:print ('Result:',function(3))
+
+callbacks=[lambda x:x**2,lambda x:x**3,lambda x:x**4]
+print('\nAnonymous Functions:')
+for function in callbacks:print('Result',function(3))
+
+
+                                
+#adding placeholders/ pass vs continue
+
+bool = True
+if bool:
+    print('good')
+else:
+    #statements to be added later
+    pass
+
+title = '\nhello\n'
+for char in title:print(char,end=' ')
+
+for char in title:
+    if char == 'l':
+        print('*',end=' ')
+        continue
+    print(char,end=' ')
+
+for char in title:
+    if char == 'l':
+        print('*',end=' ')
+        pass
+    print(char,end=' ')
+
+
+
+# producing generators:
+
+def fibonacci_generator():
+    a=b=1
+    while True:
+        yield a
+        a , b = b , a+b
+
+fib=fibonacci_generator()
+print(type(fib))
+for i in fib:
+    if i > 100:
+        break
+    else:print('Generated:',i)
+
+
+
+
+#Handling exceptions:
+
+title='anshul'
+try:
+    print(titr)
+    print('hello') #will not be printed 
+except NameError as msg:
+    print(msg)
+    print('thank you!')
+
+ # multiple exceptions
+try:
+    a = [2.2,33,22]
+    print(a[5])
+except (NameError,IndexError) as msg:
+    print(msg)
+
+ #raise
+day = 32
+try:
+    if day>31:
+        raise ValueError('invalid hai yaar!')
+except ValueError as msg:
+    print('suno...',msg)
+finally:
+    print('yupppp!')
+
+
+#Debugging assertions:
+chars=['alpha','beta','gamma','delta','epsilon']
+def display(elem):
+    assert type(elem) is int,'argument must be integer!'
+    print('list element',elem,'=',chars[elem])
+
+elem=4
+display(elem)
+elem= elem/2
+display(elem)
+
+
+
+                                        
