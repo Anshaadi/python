@@ -1,0 +1,70 @@
+def display(s):
+    '''Display an argument value'''
+    print(s)
+display(display.__doc__)
+display(r'c:\program\n')
+display('\nAnshul'+' '+'Shrivastava')
+display('hello world\n'[3:7:2])
+display('A' in 'Anshul')
+display('A' not in 'Anshul')
+
+
+#formatting strings
+snack= '{},{} and {} are my favourite tv shows'.format('TMKOC','GOT','CID')
+print(snack)
+snack= '{2},{0} and {1} are my favourite tv shows'.format('TMKOC','GOT','CID')
+print(snack)
+snack='%s and %s are good restaurants in bhopal'%('picnic','sagar gaire')
+print(snack)
+
+#modifying strings
+string='anshul sHrivastava'
+print(string.capitalize())
+print(string.title())
+print(string.upper())
+print(string.lower())
+print(string.swapcase())
+
+print(string.join('****'))
+
+string="   maja aa rha hai   "
+print(string.lstrip())
+print(string.rstrip())
+print(string.strip())
+
+print(string.replace('a','@'))
+
+string="dilwale"
+print(string.ljust(30,'%'))
+print(string.rjust(40,'&'))
+print(string.center(20,'*'))
+
+string="thugs of hindustan"
+print(string.count('u'))
+print(string.find('h'))
+print(string.startswith('t'))
+print(string.endswith('n'))
+print(string.isalpha())
+print(string.isnumeric())
+print(string.isalnum())
+print(string.isupper())
+print(string.islower())
+print(string.istitle())
+
+
+#isspace(),isdigit(),isdecimal()
+
+#converting strings-unicode
+s='Rød'
+print(s,type(s),len(s))
+s=s.encode('utf-8')
+print(s,type(s),len(s))
+s=s.decode('utf-8')
+print(s,type(s),len(s))
+import unicodedata
+for i in range(len(s)):
+    print(s[i],unicodedata.name(s[i]),sep=':')
+s=b'Gr\xc3\xb6n'
+print(s,s.decode('utf-8'))
+s='Gr\N{LATIN SMALL LETTER O WITH DIAERESIS}n'
+print(s)
